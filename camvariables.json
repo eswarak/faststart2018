@@ -3,6 +3,7 @@
   "label": "KeyPair Name",
   "name": "KeyPair_Name",
   "required": true,
+  "hidden": false,
   "type": "string",
   "default": "myKeyPair"  
 },
@@ -11,14 +12,16 @@
   "label": "Public SSH Key",
   "name": "Public_SSHKey",
   "required": true,
+  "hidden": false,
   "type": "string",
-  "default":   
+  "default": ""  
 },
 {
   "decsription": "Elastic Load Balancer Name",
   "label": "Elastic Load Balancer Name",
   "name": "ElasticLoadBalancer_Name",
   "required": true,
+  "hidden": false,
   "type": "string",
   "default": "myelb-ek"  
 },
@@ -27,7 +30,7 @@
   "label": "Availability Zones",
   "name": "azs",
   "required": true,
-  "hidden": true
+  "hidden": true,
   "type": "list",
   "default": [ "us-east-1a", "us-east-1b" ]  
 },
@@ -36,7 +39,7 @@
   "label": "Subnet IDs",
   "name": "aws_subnet",
   "required": true,
-  "hidden": true
+  "hidden": true,
   "type": "list",
   "default": [ "subnet-9297fff7", "subnet-1b6a0543" ]  
 }]
