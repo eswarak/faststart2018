@@ -41,5 +41,5 @@
   "required": true,
   "hidden": true,
   "type": "list",
-  "default": [ "subnet-9297fff7", "subnet-1b6a0543" ]  
+  "default": [ "subnet-9297fff7", "subnet-b69ff99c" ]
 }]

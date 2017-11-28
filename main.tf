@@ -19,7 +19,7 @@ variable "Public_SSHKey" {
 #Subnets - Change it
 variable "aws_subnet" {
     description = "Subnet for the ELB"
-    default     = [ "subnet-9297fff7", "subnet-1b6a0543" ]
+    default     = [ "subnet-9297fff7", "subnet-b69ff99c" ]
 }
 
 variable "ElasticLoadBalancer_Name" {
@@ -42,7 +42,7 @@ resource "aws_elb" "web" {
 
   # The same availability zone as our instance
   subnets         = ["${var.aws_subnet}"]
-  security_groups = ["sg-2d3ef55e"]
+  security_groups = ["sg-a47df2d1"]
 
   listener {
     instance_port     = 80
