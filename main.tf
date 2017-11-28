@@ -1,4 +1,4 @@
-Availability Zones - Change it
+#Availability Zones - Change it
 variable "azs" {
    type        = "list"
    description = "List of availability zones that instance can be provisioned to"
@@ -8,12 +8,12 @@ variable "azs" {
 # AWS KeyName - Change it
 variable "KeyPair_Name" {
    description  = "Desired name of the AWS key pair"
-   default = 
+   default = "" 
 }
 
 variable "Public_SSHKey" {
    description  = "Public SSH Key"
-   default =
+   default = "" 
 }
 
 #Subnets - Change it
@@ -23,8 +23,8 @@ variable "aws_subnet" {
 }
 
 variable "ElasticLoadBalancer_Name" {
-    decsription = "Elastic Load Balancer Name"
-	default = 
+    description = "Elastic Load Balancer Name"
+    default = ""  
 }
 
 provider "aws" {
