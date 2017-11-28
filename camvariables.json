@@ -1,0 +1,24 @@
+[{
+  "decsription": "KeyPair Name",
+  "label": "KeyPair Name",
+  "name": "KeyPair_Name",
+  "required": true,
+  "type": "string",
+  "default": "myKeyPair"  
+},
+{
+  "decsription": "Public SSH Key",
+  "label": "Public SSH Key",
+  "name": "Public_SSHKey",
+  "required": true,
+  "type": "string",
+  "default":   
+},
+{
+  "decsription": "Elastic Load Balancer Name",
+  "label": "Elastic Load Balancer Name",
+  "name": "ElasticLoadBalancer_Name",
+  "required": true,
+  "type": "string",
+  "default": "myelb-ek"  
+}]

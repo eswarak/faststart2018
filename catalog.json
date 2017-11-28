@@ -1,0 +1,5 @@
+{
+   "name": "Elastic Load Balancer in AWS",
+   "description": "ELB - Deploys four instances which are load balanced",
+   "version": "1.0.0.0"
+}
