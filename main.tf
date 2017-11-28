@@ -1,10 +1,4 @@
-#Variables
-variable "aws_region" {
-    description = "AWS Region to use"
-    default     = "us-east-1"
-}
-
-#Availability Zones - Change it
+Availability Zones - Change it
 variable "azs" {
    type        = "list"
    description = "List of availability zones that instance can be provisioned to"
@@ -14,52 +8,27 @@ variable "azs" {
 # AWS KeyName - Change it
 variable "KeyPair_Name" {
    description  = "Desired name of the AWS key pair"
-   default = "" 
+   default = 
 }
 
 variable "Public_SSHKey" {
    description  = "Public SSH Key"
-   default = ""
-}
-
-# Amazon Linux - Change it
-variable "aws_amis" {
-   default = "ami-55ef662f"
-}
-
-#Security Group to use - Change it
-variable "securitygroup" {
-   description = "Name of the security group to associate with the instance"
-   default     = "sg-a47df2d1"
-}
-
-#Instance Type
-variable "instance_type" {
-    description = "Type and size of the instance"
-    default     = "t2.micro"
-}
-
-#Number of instances
-variable "instance_count" {
-   description = "No of Instances more than 2 in counts of 2"
-   default     = "4"
+   default =
 }
 
 #Subnets - Change it
 variable "aws_subnet" {
     description = "Subnet for the ELB"
-    default     = [ "subnet-9297fff7", "subnet-b69ff99c" ]
+    default     = [ "subnet-9297fff7", "subnet-1b6a0543" ]
 }
 
 variable "ElasticLoadBalancer_Name" {
-    description = "Elastic Load Balancer Name"
-    default = "" 
+    decsription = "Elastic Load Balancer Name"
+	default = 
 }
 
 provider "aws" {
-    access_key = "AKIAIQJDPIN2DPPU5PGQ"
-    secret_key = "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"
-    region     = "${var.aws_region}"
+    region     = "us-east-1"
 }
 
 resource "aws_key_pair" "deployer" {
@@ -73,7 +42,7 @@ resource "aws_elb" "web" {
 
   # The same availability zone as our instance
   subnets         = ["${var.aws_subnet}"]
-  security_groups = ["${var.securitygroup}"]
+  security_groups = ["sg-2d3ef55e"]
 
   listener {
     instance_port     = 80
@@ -103,24 +72,24 @@ resource "aws_lb_cookie_stickiness_policy" "default" {
   name                     = "lbpolicy"
   load_balancer            = "${aws_elb.web.id}"
   lb_port                  = 80
-  cookie_expiration_period = 15
+  cookie_expiration_period = 600
 }
 
 resource "aws_instance" "web" {
-  instance_type     = "${var.instance_type}"
-  count             = "${var.instance_count}"
+  instance_type     = "t2.micro"
+  count             = "4"
   availability_zone = "${element(var.azs,count.index)}"
 
   # Lookup the correct AMI based on the region we specified
 
-  ami = "${var.aws_amis}"
+  ami = "ami-55ef662f"
 
   # The name of our SSH keypair you've created and downloaded
   # from the AWS console.
   # https://console.aws.amazon.com/ec2/v2/home?region=us-west-2#KeyPairs:
   key_name = "${aws_key_pair.deployer.key_name}"
 
-  vpc_security_group_ids = ["${var.securitygroup}"]
+  vpc_security_group_ids = ["sg-2d3ef55e"]
 
   user_data =  <<EOF
 #!/bin/bash

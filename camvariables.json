@@ -21,4 +21,22 @@
   "required": true,
   "type": "string",
   "default": "myelb-ek"  
+},
+{
+  "decsription": "Availability Zones",
+  "label": "Availability Zones",
+  "name": "azs",
+  "required": true,
+  "hidden": true
+  "type": "list",
+  "default": [ "us-east-1a", "us-east-1b" ]  
+},
+{
+  "decsription": "Subnet IDs",
+  "label": "Subnet IDs",
+  "name": "aws_subnet",
+  "required": true,
+  "hidden": true
+  "type": "list",
+  "default": [ "subnet-9297fff7", "subnet-1b6a0543" ]  
 }]
