@@ -89,7 +89,7 @@ resource "aws_instance" "web" {
   # https://console.aws.amazon.com/ec2/v2/home?region=us-west-2#KeyPairs:
   key_name = "${aws_key_pair.deployer.key_name}"
 
-  vpc_security_group_ids = ["sg-2d3ef55e"]
+  vpc_security_group_ids = ["sg-a4febad1"]
 
   user_data =  <<EOF
 #!/bin/bash
